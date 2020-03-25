@@ -14,7 +14,7 @@ public class FileInfo {
         this.fullStr = fullStr;
         name = FilenameUtils.getBaseName(fullStr);
         extension = FilenameUtils.getExtension(fullStr);
-        directory = FilenameUtils.getPrefix(fullStr) + FilenameUtils.getFullPath(fullStr);
+        directory = FilenameUtils.getFullPath(fullStr);
     }
 
     @Override
@@ -38,5 +38,17 @@ public class FileInfo {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public String getDirectory() {
+        return directory;
     }
 }
