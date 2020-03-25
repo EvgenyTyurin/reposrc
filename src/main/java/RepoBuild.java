@@ -23,6 +23,7 @@ public class RepoBuild {
                 .filter(Files::isRegularFile)
                 .map(Objects::toString)
                 .filter(s -> s.contains("-sources"))
+                .filter(s -> !s.contains(".jar."))
                 .forEach(s -> files.add(new FileInfo(s)));
         }
         try (PrintWriter out = new PrintWriter("report.csv")) {
@@ -30,6 +31,7 @@ public class RepoBuild {
                 boolean buildResult =
                         build(fileInfo.getDirectory());
                 out.println(fileInfo.getFullName() + ";" + buildResult);
+                out.flush();
             }
         }
 
