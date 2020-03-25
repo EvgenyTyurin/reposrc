@@ -25,6 +25,8 @@ public class CmdExec {
             }
         }
         pr.waitFor();
+        System.out.println("Exit code " + pr.exitValue());
+        outputList.add("Exit code " + pr.exitValue());
         return outputList;
     }
 
