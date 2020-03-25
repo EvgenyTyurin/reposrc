@@ -7,6 +7,7 @@ public class FileInfo {
 
     private final String fullStr;
     private String name;
+    private String fullName;
     private String extension;
     private String directory;
 
@@ -15,16 +16,12 @@ public class FileInfo {
         name = FilenameUtils.getBaseName(fullStr);
         extension = FilenameUtils.getExtension(fullStr);
         directory = FilenameUtils.getFullPath(fullStr);
+        fullName = name + "." + extension;
     }
 
     @Override
     public String toString() {
-        return "FileInfo{" +
-                "fullStr='" + fullStr + '\'' +
-                ", name='" + name + '\'' +
-                ", extension='" + extension + '\'' +
-                ", directory='" + directory + '\'' +
-                '}';
+        return fullName;
     }
 
     @Override
@@ -50,5 +47,9 @@ public class FileInfo {
 
     public String getDirectory() {
         return directory;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 }

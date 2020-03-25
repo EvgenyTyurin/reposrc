@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,7 +25,13 @@ public class RepoBuild {
                 .filter(s -> s.contains("-sources"))
                 .forEach(s -> files.add(new FileInfo(s)));
         }
-        files.stream().forEach(System.out::println);
+        try (PrintWriter out = new PrintWriter("report.csv")) {
+            for (FileInfo fileInfo : files) {
+                boolean buildResult =
+                        build(fileInfo.getDirectory());
+                out.println(fileInfo.getFullName() + ";" + buildResult);
+            }
+        }
 
     }
 
