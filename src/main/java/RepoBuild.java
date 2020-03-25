@@ -4,9 +4,12 @@ import java.util.List;
 public class RepoBuild {
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        /*
         boolean buildResult =
-                build("D:\\projects\\parsec_repo2\\batik\\batik-awt-util\\1.6-1");
+                build("D:\\projects\\parsec_repo2\\aopalliance\\aopalliance\\1.0");
         System.out.println("Build result " + buildResult);
+        */
+
     }
 
     private static boolean build(String dir) throws IOException, InterruptedException {
