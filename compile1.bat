@@ -1,7 +1,7 @@
 cd %1
 mkdir src\main\java
-unzip -d src\main\java *-sources.jar 
-call mvn -f *.pom clean install
+unzip -n -d src\main\java *-sources.jar 
+call mvn -f *.pom -Dhttps.protocols=TLSv1.2 -DskipTests -Dmaven.javadoc.skip=true install
 del /q "src\*"
 FOR /D %%p IN ("src\*.*") DO rmdir "%%p" /s /q
 rmdir src

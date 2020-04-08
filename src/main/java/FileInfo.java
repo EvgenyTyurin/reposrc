@@ -1,6 +1,7 @@
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
+import java.net.FileNameMap;
 import java.util.Objects;
 
 public class FileInfo {
@@ -10,6 +11,7 @@ public class FileInfo {
     private String fullName;
     private String extension;
     private String directory;
+    private String dirNonDrive;
 
     public FileInfo(String fullStr) {
         this.fullStr = fullStr;
@@ -17,6 +19,7 @@ public class FileInfo {
         extension = FilenameUtils.getExtension(fullStr);
         directory = FilenameUtils.getFullPath(fullStr);
         fullName = name + "." + extension;
+        dirNonDrive = FilenameUtils.getPath(fullStr);
     }
 
     @Override
@@ -51,5 +54,9 @@ public class FileInfo {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public String getDirNonDrive() {
+        return dirNonDrive;
     }
 }

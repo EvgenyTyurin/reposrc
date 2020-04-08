@@ -1,5 +1,5 @@
 mkdir src\main\java
-unzip -d src\main\java *-sources.jar 
+unzip -n -d src\main\java *-sources.jar 
 call mvn -f *.pom clean install
 del /q "src\*"
 FOR /D %%p IN ("src\*.*") DO rmdir "%%p" /s /q
